@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import twitterLogo from "./assets/twitter-logo.svg";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // Constants
 const TWITTER_HANDLE = "_buildspace";
@@ -9,10 +9,9 @@ const OPENSEA_LINK = "";
 const TOTAL_MINT_COUNT = 50;
 
 const App = () => {
-  const checkIfWalletIsConnected = () => {
-    /*
-     * First make sure we have access to window.ethereum
-     */
+  const [currentAccount, setCurrentAccount] = useState("");
+
+  const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
 
     if (!ethereum) {
