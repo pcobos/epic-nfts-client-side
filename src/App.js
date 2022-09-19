@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import twitterLogo from "./assets/twitter-logo.svg";
-import React from "react";
+import React, { useEffect } from "react";
 
 // Constants
 const TWITTER_HANDLE = "_buildspace";
@@ -29,6 +29,11 @@ const App = () => {
       Connect to Wallet
     </button>
   );
+
+  // useEffect hook to run checkIfWalletIsConnected method on load
+  useEffect(() => {
+    checkIfWalletIsConnected();
+  }, []);
 
   return (
     <div className="App">
